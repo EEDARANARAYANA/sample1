@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Slot - EV Charging Station</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h2 {
+      background-color: #313;
+      color: #fff;
+      padding: 10px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    select, input[type="text"], input[type="tel"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #313;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #111;
+    }
+  </style>
+  <script>
+    $(function() {
+      // Initialize the date picker
+      $("#date").datepicker({
+        dateFormat: "yy-mm-dd",
+        minDate: 0 // Restrict to today and future dates
+      });
+
+      // Handle form submission
+      $("#booking").on("submit", function(e) {
+        e.preventDefault();
+
+        // Form validation (you can add more validation as needed)
+        var name = $("#name").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var type = $("#type").val();
+        var chargingType = $("#charging-type").val();
+        var date = $("#date").val();
+        var time = $("#time").val();
+        var totalTime = $("#total-time").val();
+
+        if (!name || !phone || !email || !type || !chargingType || !date || !time || !totalTime) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        // Send form data to the server for processing
+        $.ajax({
+          type: "POST",
+          url: "process_booking.php", // Update the URL to your PHP script
+          data: $(this).serialize(),
+          success: function(response) {
+            if (response === "success") {
+              // Booking successful
+              alert("Slot Booked");
+              // Clear the form fields
+              $("#name, #phone, #email, #date, #time, #total-time").val("");
+              // You can also redirect the user to a confirmation page if needed
+              // window.location.href = "confirmation.html";
+            } else {
+              alert("Booking failed. Please try again.");
+            }
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>Book Slot</h2>
+  <form id="booking" action="process_booking.php" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="type">Type:</label>
+    <select id="type" name="type" required>
+      <option value="">Select Vehicle Type</option>
+      <option value="Two Wheeler">Two Wheeler</option>
+      <option value="Three Wheeler">Three Wheeler</option>
+      <option value="Four Wheeler">Four Wheeler</option>
+    </select><br>
+
+    <label for="charging-type">Charging Type:</label>
+    <select id="charging-type" name="charging-type" required>
+      <option value="">Select Charging Type</option>
+      <option value="AC Charge">AC Charge</option>
+      <option value="DC Charge">DC Charge</option>
+    </select><br>
+
+    <label for="date">Date:</label>
+    <input type="text" id="date" name="date" required><br>
+
+    <label for="time">Time:</label>
+    <input type="text" id="time" name="time" required><br>
+
+    <label for="total-time">Total Time:</label>
+    <input type="text" id="total-time" name="total-time" required><br>
+
+    <button type="submit">Book Now</button>
+  </form>
+</body>
+</html>
