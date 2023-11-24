@@ -1,0 +1,39 @@
+<?php
+// Connect to your database with the provided credentials
+$host = "localhost";
+$username = "root";
+$password = "Narayana@123";
+$database = "bankdetails";
+
+$conn = new mysqli($host, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $start_date = $_POST["start-date"];
+    $end_date = $_POST["end-date"];
+
+    // Perform a query to fetch bookings based on the search criteria
+    $table_name = "ev_charging_station"; // Update with your table name
+    $sql = "SELECT * FROM $table_name WHERE (name LIKE '%$name%') AND (date BETWEEN '$start_date' AND '$end_date')";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            // Display each booking as needed
+            echo '<li class="booking-item">';
+            echo '<h4>Name: ' . $row['name'] . '</h4>';
+            echo '<p>Booking Date: ' . $row['date'] . '</p>';
+            // Add more booking details as needed
+            echo '</li>';
+        }
+    } else {
+        echo "No bookings found based on the search criteria.";
+    }
+}
+
+$conn->close();
+?>
