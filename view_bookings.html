@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Bookings - EV Charging Station</title>
+  <link rel="stylesheet" href="style.css"> <!-- Include your main CSS file -->
+  <style>
+    /* Specific CSS for the view bookings page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h2 {
+      background-color: #313;
+      color: #fff;
+      padding: 10px;
+    }
+
+    /* Search form styles */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #313;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #111;
+    }
+
+    /* Styles for the booking list */
+    .booking-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .booking-item {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .booking-item h4 {
+      margin: 0;
+    }
+  </style>
+  <script>
+    function toggleBookingDetailsForm(bookingId) {
+      var form = document.getElementById("booking-details-form-" + bookingId);
+      if (form.style.display === "none") {
+        form.style.display = "block";
+      } else {
+        form.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <!-- Your navigation menu code (similar to the main page) -->
+  </nav>
+
+  <main>
+    <h2 class="page-heading">View Bookings</h2>
+    <div id="post-container">
+      <section id="view-bookings">
+        <div class="card">
+          <div class="card-description">
+            <h3>Your Bookings</h3>
+            <!-- Search form for name and date -->
+            <form action="process_view_bookings.php" method="post">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" placeholder="Enter Name">
+              <label for="start-date">Start Date:</label>
+              <input type="date" id="start-date" name="start-date">
+              <label for="end-date">End Date:</label>
+              <input type="date" id="end-date" name="end-date">
+              <button type="submit">Search Bookings</button>
+            </form>
+            <!-- Display search results here -->
+            <ul class="booking-list">
+              <?php
+              // Add your PHP code here to fetch and display bookings based on the search criteria
+              // Populate with booking data as described in previous responses
+              ?>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Your footer content (similar to the main page) -->
+  </footer>
+</body>
+</html>
