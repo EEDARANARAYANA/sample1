@@ -1,0 +1,35 @@
+<?php
+// Connect to your database with the provided credentials
+$host = "localhost";
+$username = "root";
+$password = "Narayana@123";
+$database = "bankdetails";
+
+$conn = new mysqli($host, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate and sanitize the input
+    $name = $_POST["name"];
+    $name = $conn->real_escape_string($name); // Prevent SQL injection
+
+    if (empty($name)) {
+        echo "Name field is required";
+    } else {
+        // Perform a query to cancel the booking based on the name
+        $table_name = "ev_charging_station"; // Update with your table name
+        $sql = "DELETE FROM $table_name WHERE name = '$name'";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Booking Canceled";
+        } else {
+            echo "Failed to cancel booking: " . $conn->error;
+        }
+    }
+}
+
+$conn->close();
+?>
