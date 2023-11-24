@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancel Booking - EV Charging Station</title>
+  <link rel="stylesheet" href="style.css"> <!-- Include your main CSS file -->
+  <style>
+    /* Specific CSS for the Cancel Booking page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h2 {
+      background-color: #313;
+      color: #fff;
+      padding: 10px;
+    }
+
+    form {
+      max-width: 400px; /* Adjust the width as needed */
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #313;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #111;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <!-- Your navigation menu code (similar to the main page) -->
+  </nav>
+
+  <main>
+    <h2 class="page-heading">Cancel Booking</h2>
+    <div id="post-container">
+      <section id="cancel-booking">
+        <div class="card">
+          <div class="card-description">
+            <h3>Cancel Your Booking</h3>
+            <form id="cancel-booking-form" action="process_cancel_booking.php" method="post">
+              <label for="name">Your Name:</label>
+              <input type="text" id="name" name="name" required><br>
+
+              <button type="submit">Cancel Booking</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Your footer content (similar to the main page) -->
+  </footer>
+</body>
+</html>
