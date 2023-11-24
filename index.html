@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -14,51 +16,67 @@
     }
 
     .card-description p {
-     font-size: 10px; /* Adjust the font size as needed */
-      }
+      font-size: 10px; /* Adjust the font size as needed */
+    }
 
     /* Add background color and styles */
     body {
       background-color: #f0f0f0; /* Set your preferred background color */
       font-family: 'Roboto', sans-serif;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
     }
-    
+
     nav {
       background-color: #313; /* Navigation bar background color */
       color: #fff; /* Text color in the navigation bar */
       padding: 10px 0;
     }
-    
+
     nav ul {
       list-style: none;
       display: flex;
       justify-content: space-around;
       align-items: center;
       padding: 0;
+      margin: 0; /* Remove default margin */
     }
-    
+
     nav ul li {
       margin: 0 15px; /* Adjust the margin as needed to control the spacing */
     }
-    
+
     nav a {
       text-decoration: none;
       color: #fff;
     }
-    
+
     .page-heading {
       background-color: #273; /* Page heading background color */
       color: #fff;
       padding: 10px;
     }
-    
+
     #post-container {
       background-color: #fff; /* Content background color */
       padding: 20px;
     }
+
+    /* Media queries for responsiveness */
+    @media only screen and (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
   </style>
   <title>EV Charging Station</title>
 </head>
+
 <body>
   <nav>
     <div id="logo-img">
@@ -77,11 +95,11 @@
         <a href="book_slot.html">Book Slot</a>
       </li>
       <li>
-    <a href="cancel_booking.html">Cancel Booking</a>
-  </li>
-  <li>
-    <a href="view_bookings.html">View Bookings</a>
-  </li>
+        <a href="cancel_booking.html">Cancel Booking</a>
+      </li>
+      <li>
+        <a href="view_bookings.html">View Bookings</a>
+      </li>
       <li>
         <a href="pricing.html">Pricing details</a>
       </li>
@@ -106,13 +124,22 @@
           </div>
           <div class="card-description">
             <h3>Welcome to Our EV Charging Station Network</h3>
-            <p>At charging station, we are dedicated to supporting the electric vehicle revolution and providing EV owners with convenient and reliable charging solutions. Our website serves as a gateway to our network of charging stations, making it easier than ever for you to power your electric vehicle.</p>
-            <p>With our user-friendly interface, you can effortlessly locate the nearest charging stations, complete with detailed location information and real-time availability updates. We provide a variety of charging options, from standard charging to fast-charging stations, tailored to meet your specific needs.</p>
-            <p>Our website is designed for your convenience. You can create an account for streamlined reservations, manage your payments, and read real user reviews to make informed choices. We prioritize your safety and privacy and ensure that your transactions are secure and in compliance with all relevant regulations.
+            <p>At charging station, we are dedicated to supporting the electric vehicle revolution and providing EV
+              owners with convenient and reliable charging solutions. Our website serves as a gateway to our network of
+              charging stations, making it easier than ever for you to power your electric vehicle.</p>
+            <p>With our user-friendly interface, you can effortlessly locate the nearest charging stations, complete
+              with detailed location information and real-time availability updates. We provide a variety of charging
+              options, from standard charging to fast-charging stations, tailored to meet your specific needs.</p>
+            <p>Our website is designed for your convenience. You can create an account for streamlined reservations,
+              manage your payments, and read real user reviews to make informed choices. We prioritize your safety and
+              privacy and ensure that your transactions are secure and in compliance with all relevant regulations.
 
-As a part of our commitment to sustainability, we highlight the environmental benefits of electric vehicles and offer promotions and discounts for our valued users. Stay connected with us for the latest industry news and updates as we continue to expand and enhance our charging station network.
+              As a part of our commitment to sustainability, we highlight the environmental benefits of electric
+              vehicles and offer promotions and discounts for our valued users. Stay connected with us for the latest
+              industry news and updates as we continue to expand and enhance our charging station network.
 
-Join us in reducing emissions and driving towards a cleaner, more sustainable future. Visit our website and start your electric journey today.</p>
+              Join us in reducing emissions and driving towards a cleaner, more sustainable future. Visit our website
+              and start your electric journey today.</p>
           </div>
         </div>
       </section>
@@ -122,22 +149,20 @@ Join us in reducing emissions and driving towards a cleaner, more sustainable fu
   <footer>
     <div id="left-footer">
       <h3>References</h3>
-      <p>
-        <ul>
-          <li>
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="#">Terms And Conditions</a>
-          </li>
-          <li>
-            <a href="#">Help and Support</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </p>
+      <ul>
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="#">Terms And Conditions</a>
+        </li>
+        <li>
+          <a href="#">Help and Support</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
     </div>
 
     <div id="right-footer">
@@ -163,10 +188,5 @@ Join us in reducing emissions and driving towards a cleaner, more sustainable fu
       </div>
     </div>
   </footer>
-  </main>
 
-  
-
-  <script src="main.js"></script>
-</body>
-</html>
+  <script src="main.js"></script
