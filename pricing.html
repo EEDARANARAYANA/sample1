@@ -64,6 +64,53 @@
       color: #fff;
       padding: 10px;
     }
+
+    /* Added CSS for the input form and prediction result section */
+    #prediction-form {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #charging-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    #charging-form label {
+      width: 100px;
+      text-align: right;
+    }
+
+    #charging-form input {
+      width: 60px;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    #charging-form button {
+      width: 100px;
+      padding: 8px;
+      background-color: #313;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #prediction-result {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -89,9 +136,61 @@
         <p>Description: Cost-effective charging option for overnight use.</p>
       </div>
     </section>
+
+    <!-- Prediction Form and Result Section -->
+    <section id="prediction-form">
+      <h2>EV Charging Prediction</h2>
+      <form id="charging-form">
+        <label for="day">Day:</label>
+        <input type="number" id="day" name="day" required min="1" max="31">
+
+        <label for="month">Month:</label>
+        <input type="number" id="month" name="month" required min="1" max="12">
+
+        <label for="hour">Hour:</label>
+        <input type="number" id="hour" name="hour" required min="0" max="23">
+
+        <label for="minute">Minute:</label>
+        <input type="number" id="minute" name="minute" required min="0" max="59">
+
+        <button type="button" onclick="predictCharging()">Predict Charging</button>
+      </form>
+
+      <div id="prediction-result">
+        <!-- Result will be displayed here -->
+      </div>
+    </section>
   </main>
   <footer>
     <p>&copy; 2023 EV Charging Station</p>
   </footer>
+
+  <!-- Add this script section after the existing style section -->
+  <script>
+    function predictCharging() {
+      // Get input values
+      const day = document.getElementById("day").value;
+      const month = document.getElementById("month").value;
+      const hour = document.getElementById("hour").value;
+      const minute = document.getElementById("minute").value;
+
+      // Call your machine learning model's prediction function
+      // This is a placeholder, replace it with your actual prediction logic
+      const { total_kw, price } = predict(day, month, hour, minute);
+
+      // Display the result
+      const resultContainer = document.getElementById("prediction-result");
+      resultContainer.innerHTML = `<p>Predicted Total kWh: ${total_kw}</p><p>Predicted Price: ${price}</p>`;
+    }
+
+    // Placeholder function for machine learning prediction
+    function predict(day, month, hour, minute) {
+      // Replace this with your actual prediction logic
+      // This is just an example placeholder
+      const total_kwh = Math.random() * 10; // Replace with your actual prediction
+      const price = total_kw; // Replace with your actual pricing logic
+      return { total_kw, price };
+    }
+  </script>
 </body>
 </html>
